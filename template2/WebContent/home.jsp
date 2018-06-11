@@ -1,19 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%>
-<%@ taglib prefix="s" uri="/struts-tags"%>
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta http-equiv="Content-Style-Type" content="text/css" />
-<meta http-equiv="Content-Script-Type" content="text/javascript" />
-<meta http-equiv="imagetoolbar" content="no" />
-<meta name="description" content="" />
-<meta name="keywords" content="" />
-<title>BuyItemComplete画面</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css"/>
+<meta http-equiv="Content-Script-Type" content="text/javascript"/>
+<meta http-equiv="imagetoolbar" content="no"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<title>Home画面</title>
 
 <style type="text/css">
-/*===========TAG LAYOUT==========*/
+/*========TAG LAYOUT========*/
 	body{
 		margin:0;
 		padding:0;
@@ -28,7 +28,7 @@ pageEncoding="UTF-8"%>
 		text-align:center;
 		margin:0 auto;
 	}
-/*==========ID LAYOUT==========*/
+/*=========ID LAYOUT========*/
 	#top{
 		width:780px;
 		margin:30px auto;
@@ -57,17 +57,14 @@ pageEncoding="UTF-8"%>
 		<div id = "pr">
 		</div>
 	</div>
-
 	<div id = "main">
 		<div id = "top">
-			<p>	BuyItemComplete</p>
+			<p>Home</p>
 		</div>
 		<div>
-			<p>購入手続きが完了しました。</p>
-			<div>
-				<a href='<s:url action = "MyPageAction"/>'>マイページ</a><span>から購入履歴の確認が可能です。</span>
-				<p>Homeへ戻る場合は<a href='<s:url action = "GoHomeAction"/>'>こちら</a></p>
-			</div>
+			<s:form action="HomeAction">
+				<s:submit value="商品購入"/>
+			</s:form>
 		</div>
 	</div>
 	<div id = "footer">
