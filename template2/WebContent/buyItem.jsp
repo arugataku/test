@@ -10,10 +10,10 @@ pageEncoding="UTF-8"%>
 <meta http-equiv="imagetoolbar" content="no" />
 <meta name="description" content="" />
 <meta name="keywords" content="" />
-<title>Login画面</title>
+<title>buyItem画面</title>
 
 <style type="text/css">
-/* ========TAG LAYOUT======== */
+/* ========TAG LAYOUT=========*/
 	body{
 		margin:0;
 		padding:0;
@@ -22,13 +22,13 @@ pageEncoding="UTF-8"%>
 		font-family:Verdana,Helvetica,sans-serif;
 		font-size:12px;
 		color:#333;
-		background:#fff;
+		background:#fff
 	}
 	table{
 		text-align:center;
 		margin:0 auto;
 	}
-/*========ID LAYOUT=========*/
+/*==========ID LAYOUT==========*/
 	#top{
 		width:780px;
 		margin:30px auto;
@@ -59,18 +59,43 @@ pageEncoding="UTF-8"%>
 	</div>
 	<div id = "main">
 		<div id = "top">
-			<p>Login</p>
+			<p>BuyItem</p>
 		</div>
 		<div>
-			<h3>商品を購入する際にはログインをお願いします。</h3>
-			<s:form action="LoginAction">
-				<s:textfield name="loginUserId"/>
-				<s:password name="loginPassword"/>
-				<s:submit value="ログイン"/>
-			</s:form>
-			<br/>
+		<s:form action="BuyItemAction">
+			<table>
+				<tr>
+					<td><span>商品名</span></td>
+					<td><s:property value ="session.buyItem_name"/></td>
+				</tr>
+				<tr>
+					<td><span>値段</span></td>
+					<td><s:property value = "session.buyItem_price"/><span>円</span></td>
+				</tr>
+				<tr>
+					<td><span>在庫</span></td>
+					<td><select name = "stock">
+							<option value = "1" selected="selected">1</option>
+							<option value = "2">2</option>
+							<option value = "3">3</option>
+							<option value = "4">4</option>
+							<option value = "5">5</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td><span>支払い方法</span></td>
+					<td><input type="radio" name="pay" value="1" checked="checked">現金払い
+						<input type="radio" name="pay" value="2">クレジットカード</td>
+				</tr>
+				<tr>
+					<td><s:submit value = "購入"/></td>
+				</tr>
+			</table>
+		</s:form>
 			<div>
-				<span>新規ユーザー登録は<a href='<s:url action="UserCreateAction"/>'>こちら</a></span>
+				<span>前画面に戻る場合は</span>
+				<a href='<s:url action = "HomeAction"/>'>こちら</a>
 			</div>
 		</div>
 	</div>

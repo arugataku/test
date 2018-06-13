@@ -10,7 +10,7 @@ pageEncoding="UTF-8"%>
 <meta http-equiv="imagetoolbar" content="no" />
 <meta name="description" content="" />
 <meta name="keywords" content="" />
-<title>Login画面</title>
+<title>UserCreate画面</title>
 
 <style type="text/css">
 /* ========TAG LAYOUT======== */
@@ -22,19 +22,19 @@ pageEncoding="UTF-8"%>
 		font-family:Verdana,Helvetica,sans-serif;
 		font-size:12px;
 		color:#333;
-		background:#fff;
+		background:#fff
 	}
 	table{
 		text-align:center;
 		margin:0 auto;
 	}
-/*========ID LAYOUT=========*/
+/*=========ID LAYOUT=========*/
 	#top{
 		width:780px;
 		margin:30px auto;
 		border:1px solid #333;
 	}
-	#header{
+	##header{
 		width:100%;
 		height:80px;
 		background-color:black;
@@ -47,7 +47,7 @@ pageEncoding="UTF-8"%>
 	#footer{
 		width:100%;
 		height:80px;
-		background-color:black;
+		baclground-color:black;
 		clear:both;
 	}
 </style>
@@ -59,18 +59,32 @@ pageEncoding="UTF-8"%>
 	</div>
 	<div id = "main">
 		<div id = "top">
-			<p>Login</p>
+			<p>UserCreate</p>
 		</div>
 		<div>
-			<h3>商品を購入する際にはログインをお願いします。</h3>
-			<s:form action="LoginAction">
-				<s:textfield name="loginUserId"/>
-				<s:password name="loginPassword"/>
-				<s:submit value="ログイン"/>
-			</s:form>
-			<br/>
+			<s:if test="errorMessage !=''">
+				<s:property value="errorMessage" escape="false"/>
+			</s:if>
+			<table>
+				<s:form action="UserCreateConfirmAction">
+					<tr>
+						<td><label>ログインID:</label></td>
+						<td><input type="text" name="loginUserId" value=""/></td>
+					</tr>
+					<tr>
+						<td><label>ログインPASS:</label></td>
+						<td><input type="text" name="loginPassword" value=""/></td>
+					</tr>
+					<tr>
+						<td><label>ユーザー名:</label></td>
+						<td><input type="text" name="userName" value=""/></td>
+					</tr>
+					<s:submit value="登録"/>
+				</s:form>
+			</table>
 			<div>
-				<span>新規ユーザー登録は<a href='<s:url action="UserCreateAction"/>'>こちら</a></span>
+				<span>前画面の戻る場合は</span>
+				<a href='<s:url action="HomeAction"/>'>こちら</a>
 			</div>
 		</div>
 	</div>
